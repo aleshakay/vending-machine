@@ -12,7 +12,6 @@ const getMachine = () => new Promise((resolve, reject) => {
         demMachines[fbId].id = fbId;
         machines.push(demMachines[fbId]);
       });
-      console.log(machines);
       resolve(machines[0]);
     })
     .catch((error) => reject(error));

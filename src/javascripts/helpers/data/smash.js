@@ -1,10 +1,14 @@
 import machineData from './machineData';
 import poistionData from './poistionData';
+import snackPositionData from './snackPositionData';
 
 const getCompleteMachine = () => new Promise((resolve, reject) => {
   machineData.getMachine()
     .then((singleMachine) => poistionData.getAllPositionsByMachineId(singleMachine.id))
-    .then((positions) => resolve(positions))
+    .then((positions) => {
+      snackPositionData.getAllSnackPositionsByMachineId(positions[0].machineId)
+        .then((snackPositions) => resolve(snackPositions));
+    })
     .catch((error) => reject(error));
 // get machine returns first machine (hard coding)
 // use machine id to get all position for that machine
