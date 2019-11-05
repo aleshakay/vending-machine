@@ -1,10 +1,10 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
 
-const baseURL = apiKeys.firebaseKeys.databaseURL;
+const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getSnackByUid = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${baseURL}/snacks.json?orderBy="uid"&equalTo="${uid}"`)
+const getSnacksByUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/snacks.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       const demSnacks = response.data;
       const snacks = [];
@@ -17,4 +17,4 @@ const getSnackByUid = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getSnackByUid };
+export default { getSnacksByUid };
