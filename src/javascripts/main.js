@@ -1,8 +1,9 @@
 import firebase from 'firebase';
 
 import auth from './components/auth/auth';
-import authData from './helpers/authData';
+import authData from './helpers/data/authData';
 import myNavbar from './components/myNavbar/myNavbar';
+import machine from './components/Machine/machine';
 
 import apiKeys from './helpers/apiKeys.json';
 
@@ -13,6 +14,7 @@ const init = () => {
   authData.checkLoginStatus();
   auth.loginButton();
   myNavbar.logoutEvent();
+  machine.buildTheMachine();
 };
 
 init();
